@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		KGF
+	</title>
+	<link href="http://fonts.cdnfonts.com/css/boston-traffic" rel="stylesheet">
+	<style>
+		p {
+			background-image: url(demo1.jpg);
+			background-repeat: repeat;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			margin-top: 200px;
+			font-size: 180px;
+			text-align: center;
+			font-weight: bold;
+			text-transform: uppercase;
+            font-family: 'Boston Traffic', sans-serif;
+			font-weight: 800;
+            font-style: italic;
+			-webkit-font-smoothing: antialiased;
+			/*position: absolute;*/
+		}
+        body{
+            background-image: url(kgf.webp);
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+        .stroke-double {
+  			position: relative;
+  			z-index: 0;
+		}
+/* single stroke */
+.stroke-double:before {
+  content: attr(title);
+  position: absolute;
+  /*-webkit-text-stroke: 1px red;*/
+    /*Fire animation*/
+  background-image: url("https://dl.dropbox.com/s/r2s8s2r17wi0xm6/flame.png?dl=0");
+  background-position: 0 -1000px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fire 4s linear infinite;
+  z-index: -2;
+  z-index: -1;
+}
+/* double stroke */
+.stroke-double:after {
+  content: attr(title);
+  position: absolute;
+  /*left: -13.5%;*/
+  left: 0;
+  right: 0;
+}
+
+@keyframes fire {
+  0% {
+    background-position: 0% -50%;
+  }
+  100% {
+    background-position: 0% -25%;
+  }
+}
+	</style>
+</head>
+
+<body>
+	<div style="position: fixed;bottom:-5vh;left: 0;right: 0;">
+		<p class="stroke-double" title="KGF">KGF</p>
+	</div>
+</audio>
+<script>
+	var audio = new Audio('Kgf-Bgm.mp3');
+	audio.addEventListener('ended', function() {
+    	this.currentTime = 0.97;
+    	this.play();
+	}, false);
+	var playing = false;
+	function playBgm(){
+		if(!playing){
+		audio.play();
+		playing=true;
+		}
+	}
+	window.addEventListener('DOMContentLoaded', (event) => {
+    document.body.addEventListener("click", playBgm);
+});
+</script>
+</body>
+
+</html>
